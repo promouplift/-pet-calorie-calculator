@@ -4,8 +4,29 @@
   <meta charset="UTF-8">
   <title>Pet Food Calorie Calculator</title>
   <meta name="description" content="Free calorie calculator for dogs and cats. Calculate daily pet food needs.">
-  <meta name="google-site-verification" content="ZdG-VfNBGlTgPS8w-Mqwf5LpMLXP7a6z76r4iI5zA6A" />
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.purepetsfood.com/pet-food-calorie-calculator">
+  <meta name="google-site-verification" content="ZdG-VfNBGlTgPS8w-Mqwf5LpMLXP7a6z76r4iI5zA6A">
   <link rel="stylesheet" href="style.css">
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "url": "https://www.purepetsfood.com/pet-food-calorie-calculator",
+    "name": "Pet Food Calorie Calculator",
+    "description": "Free calorie calculator for dogs and cats. Calculate daily pet food needs.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Pure Pets Food",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.purepetsfood.com/logo.png"
+      }
+    }
+  }
+  </script>
 </head>
 <body>
   <h1>Pet Food Calorie Calculator</h1>
@@ -31,10 +52,31 @@
     <button type="submit">Calculate</button>
   </form>
 
-  <div id="result"></div>
+  <div id="result" aria-live="polite" style="margin-top:1em;font-weight:bold;"></div>
 
   <p>Need premium food for your pet? Visit <a href="https://www.purepetsfood.com" target="_blank">PurePetsFood.com</a> for vet-approved options.</p>
 
-  <script src="script.js"></script>
+  <script>
+    document.getElementById('calculator').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const species = document.getElementById('species').value;
+      const weight = parseFloat(document.getElementById('weight').value);
+      const activity = document.getElementById('activity').value;
+      if (!weight || weight <= 0) {
+        document.getElementById('result').textContent = 'Please enter a valid weight.';
+        return;
+      }
+      // Calculate Resting Energy Requirement (RER)
+      const RER = 70 * Math.pow(weight, 0.75);
+      // Activity factors
+      const factors = {
+        dog: { low: 1.2, normal: 1.4, high: 1.6 },
+        cat: { low: 1.0, normal: 1.2, high: 1.4 }
+      };
+      const factor = factors[species][activity] || 1.2;
+      const dailyCalories = Math.round(RER * factor);
+      document.getElementById('result').textContent = `Your ${species} needs approximately ${dailyCalories} kcal per day.`;
+    });
+  </script>
 </body>
 </html>
