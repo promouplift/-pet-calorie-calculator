@@ -7,19 +7,49 @@
   <meta name="description" content="Free calorie calculator for dogs and cats. Calculate daily pet food needs.">
   <meta name="robots" content="index, follow">
   <meta name="googlebot" content="index, follow">
-  <link rel="canonical" href="https://www.purepetsfood.com/pet-food-calorie-calculator">
-  <link rel="sitemap" type="application/xml" title="Sitemap" href="https://www.purepetsfood.com/sitemap.xml">
+  <link rel="canonical" href="https://pet-calorie-calculator.pages.dev/">
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="https://pet-calorie-calculator.pages.dev/sitemap.xml">
   <meta name="google-site-verification" content="ZdG-VfNBGlTgPS8w-Mqwf5LpMLXP7a6z76r4iI5zA6A">
-  <link rel="stylesheet" href="style.css">
+
+  <!-- Inline Styles for Enhanced Design -->
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; padding: 0; font-family: 'Noto Sans', Arial, sans-serif; line-height: 1.6; color: #333; background: #f5f5f5; }
+    .container { max-width: 800px; margin: 0 auto; padding: 20px; }
+    .site-header, .site-footer { background: #fff; border-bottom: 1px solid #ddd; }
+    .site-footer { border-top: 1px solid #ddd; border-bottom: none; }
+    .site-header .container, .site-footer .container { display: flex; align-items: center; justify-content: space-between; }
+    .logo img { height: 50px; }
+    .site-nav ul { list-style: none; margin: 0; padding: 0; display: flex; gap: 15px; }
+    .site-nav a { text-decoration: none; color: #555; font-weight: 600; }
+    .site-nav a:hover { color: #e60023; }
+    main { background: #fff; margin-top: 20px; padding: 30px; border-radius: 8px; }
+    h1 { text-align: center; margin-bottom: 10px; font-size: 2rem; }
+    p { text-align: center; margin-bottom: 20px; color: #666; }
+    form { display: flex; flex-direction: column; gap: 15px; }
+    label { font-weight: 600; }
+    input, select { padding: 10px; border: 1px solid #ccc; border-radius: 4px; width: 100%; }
+    button { padding: 12px; background: #e60023; color: #fff; border: none; border-radius: 4px; font-size: 1rem; cursor: pointer; }
+    button:hover { background: #cc001f; }
+    .result { margin-top: 20px; font-size: 1.2rem; text-align: center; font-weight: 600; }
+    .site-footer p { margin: 5px 0; font-size: 0.9rem; color: #777; }
+    .site-footer a { color: #555; text-decoration: none; }
+    .site-footer a:hover { text-decoration: underline; }
+    @media (max-width: 600px) {
+      .site-header .container, .site-footer .container { flex-direction: column; gap: 10px; }
+      h1 { font-size: 1.5rem; }
+    }
+  </style>
 
   <!-- Open Graph Meta Tags -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="Pet Food Calorie Calculator">
   <meta property="og:description" content="Free calorie calculator for dogs and cats. Calculate daily pet food needs.">
-  <meta property="og:url" content="https://www.purepetsfood.com/pet-food-calorie-calculator">
+  <meta property="og:url" content="https://pet-calorie-calculator.pages.dev/">
   <meta property="og:site_name" content="Pure Pets Food">
   <meta property="og:image" content="https://www.purepetsfood.com/wp-content/uploads/2024/03/Pure-Pets-Shop.png">
   <meta property="og:image:alt" content="Pure Pets Food Logo">
+  
   <!-- Twitter Card Meta Tags -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@PurePetsFood">
@@ -32,7 +62,7 @@
   {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "url": "https://www.purepetsfood.com/pet-food-calorie-calculator",
+    "url": "https://pet-calorie-calculator.pages.dev/",
     "name": "Pet Food Calorie Calculator",
     "description": "Free calorie calculator for dogs and cats. Calculate daily pet food needs.",
     "publisher": {
@@ -47,32 +77,57 @@
   </script>
 </head>
 <body>
-  <h1>Pet Food Calorie Calculator</h1>
-  <p>Find out how many calories your pet needs daily based on weight and activity.</p>
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="https://pet-calorie-calculator.pages.dev/" class="logo">
+        <img src="https://www.purepetsfood.com/logo.png" alt="Pure Pets Food Logo">
+      </a>
+      <nav class="site-nav">
+        <ul>
+          <li><a href="https://pet-calorie-calculator.pages.dev/">Home</a></li>
+          <li><a href="https://pet-calorie-calculator.pages.dev/about">About Us</a></li>
+          <li><a href="https://pet-calorie-calculator.pages.dev/privacy-policy">Privacy Policy</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-  <form id="calculator">
-    <label for="species">Pet Type:</label>
-    <select id="species">
-      <option value="dog">Dog</option>
-      <option value="cat">Cat</option>
-    </select><br>
+  <!-- Main Content -->
+  <main class="container">
+    <h1>Pet Food Calorie Calculator</h1>
+    <p>Find out how many calories your pet needs daily based on weight and activity.</p>
 
-    <label for="weight">Weight (kg):</label>
-    <input type="number" id="weight" step="0.1" required><br>
+    <form id="calculator">
+      <label for="species">Pet Type:</label>
+      <select id="species">
+        <option value="dog">Dog</option>
+        <option value="cat">Cat</option>
+      </select>
 
-    <label for="activity">Activity Level:</label>
-    <select id="activity">
-      <option value="low">Low</option>
-      <option value="normal">Normal</option>
-      <option value="high">High</option>
-    </select><br>
+      <label for="weight">Weight (kg):</label>
+      <input type="number" id="weight" step="0.1" placeholder="e.g. 4.5" required>
 
-    <button type="submit">Calculate</button>
-  </form>
+      <label for="activity">Activity Level:</label>
+      <select id="activity">
+        <option value="low">Low</option>
+        <option value="normal">Normal</option>
+        <option value="high">High</option>
+      </select>
 
-  <div id="result" aria-live="polite" style="margin-top:1em;font-weight:bold;"></div>
+      <button type="submit">Calculate Calories</button>
+    </form>
 
-  <p>Need premium food for your pet? Visit <a href="https://www.purepetsfood.com" target="_blank">PurePetsFood.com</a> for vet-approved options.</p>
+    <div id="result" aria-live="polite" class="result"></div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2025 Pure Pets Food. All rights reserved.</p>
+      <p><a href="https://pet-calorie-calculator.pages.dev/about">About Us</a> | <a href="https://pet-calorie-calculator.pages.dev/privacy-policy">Privacy Policy</a></p>
+    </div>
+  </footer>
 
   <script>
     document.getElementById('calculator').addEventListener('submit', function(e) {
@@ -84,9 +139,7 @@
         document.getElementById('result').textContent = 'Please enter a valid weight.';
         return;
       }
-      // Calculate Resting Energy Requirement (RER)
       const RER = 70 * Math.pow(weight, 0.75);
-      // Activity factors
       const factors = {
         dog: { low: 1.2, normal: 1.4, high: 1.6 },
         cat: { low: 1.0, normal: 1.2, high: 1.4 }
